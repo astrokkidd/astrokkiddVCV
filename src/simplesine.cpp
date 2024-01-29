@@ -43,7 +43,7 @@ struct SimpleSine : Module {
 		outputs[SINE_OUTPUT].setVoltage(5.f * sine);
 
 		blinkPhase += args.sampleTime;
-		if (blinkPhase >= 1.f) { blinkPhase -= 1.f }
+		if (blinkPhase >= 1.f) { blinkPhase -= 1.f; }
 		lights[BLINK_LIGHT].setBrightness(blinkPhase < 0.5f ? 1.f : 0.f);
 
 	}
@@ -62,11 +62,11 @@ struct SimpleSineWidget : ModuleWidget {
 
 		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(15.24, 59.08)), module, SimpleSine::PITCH_PARAM));
 
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(15.339, 81.982)), module, SimpleSine::_1VOCT_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(15.339, 81.982)), module, SimpleSine::PITCH_INPUT));
 
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(15.339, 101.707)), module, SimpleSine::SINE_OUTPUT));
 
-		addChild(createLightCentered<MediumLight<RedLight>>(mm2px(Vec(15.24, 40.593)), module, SimpleSine::LIGHT_LIGHT));
+		addChild(createLightCentered<MediumLight<RedLight>>(mm2px(Vec(15.24, 40.593)), module, SimpleSine::BLINK_LIGHT));
 	}
 };
 
