@@ -7,7 +7,7 @@ struct SimpleSine : Module {
 		PARAMS_LEN
 	};
 	enum InputId {
-		_1VOCT_INPUT,
+		PITCH_INPUT,
 		INPUTS_LEN
 	};
 	enum OutputId {
@@ -15,18 +15,37 @@ struct SimpleSine : Module {
 		OUTPUTS_LEN
 	};
 	enum LightId {
-		LIGHT_LIGHT,
+		BLINK_LIGHT,
 		LIGHTS_LEN
 	};
+
+	float phase = 0.f;
+	float blinkPhase = 0.f;
 
 	SimpleSine() {
 		config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
 		configParam(PITCH_PARAM, 0.f, 1.f, 0.f, "");
-		configInput(_1VOCT_INPUT, "");
+		configInput(PITCH_INPUT, "");
 		configOutput(SINE_OUTPUT, "");
 	}
 
 	void process(const ProcessArgs& args) override {
+
+		float pitch = params[PITCH_PARAM].getValue();
+		pitch += inputs[PITCH_INPUT].getVoltage();
+
+		float freq = dsp::FREQ_C4 * std::pow(2.f, pitch);
+
+		phase += freq * args.sampleTime;
+		if (phase >= 1.f) { phase -= 1.f; }
+
+		float sine = std::sin(2.f * M_PI * phase);
+		outputs[SINE_OUTPUT].setVoltage(5.f * sine);
+
+		blinkPhase += args.sampleTime;
+		if (blinkPhase >= 1.f) { blinkPhase -= 1.f }
+		lights[BLINK_LIGHT].setBrightness(blinkPhase < 0.5f ? 1.f : 0.f);
+
 	}
 };
 
