@@ -24,7 +24,7 @@ struct SimpleSine : Module {
 
 	SimpleSine() {
 		config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
-		configParam(PITCH_PARAM, 0.f, 1.f, 0.f, "Pitch");
+		configParam(PITCH_PARAM, -5.f, 5.f, 0.f, "Pitch (1V/Oct)", " Hz", 2, dsp::FREQ_C4);
 		configInput(PITCH_INPUT, "1V/Octave pitch");
 		configOutput(SINE_OUTPUT, "Sine");
 	}
