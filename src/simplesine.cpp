@@ -24,9 +24,9 @@ struct SimpleSine : Module {
 
 	SimpleSine() {
 		config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
-		configParam(PITCH_PARAM, 0.f, 1.f, 0.f, "");
-		configInput(PITCH_INPUT, "");
-		configOutput(SINE_OUTPUT, "");
+		configParam(PITCH_PARAM, 0.f, 1.f, 0.f, "Pitch");
+		configInput(PITCH_INPUT, "1V/Octave pitch");
+		configOutput(SINE_OUTPUT, "Sine");
 	}
 
 	void process(const ProcessArgs& args) override {
