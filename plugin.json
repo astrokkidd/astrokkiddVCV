@@ -2,14 +2,14 @@
   "slug": "astrokkidd",
   "name": "astrokkidd",
   "version": "2.0.0",
-  "license": "proprietary",
-  "brand": "astrokkidd",
+  "license": "GPL-3.0-or-later",
+  "brand": "",
   "author": "astrokkidd",
-  "authorEmail": "",
+  "authorEmail": "josiahparrott@gmail.com",
   "authorUrl": "",
   "pluginUrl": "",
   "manualUrl": "",
-  "sourceUrl": "",
+  "sourceUrl": "https://github.com/astrokkidd/astrokkiddVCV",
   "donateUrl": "",
   "changelogUrl": "",
   "modules": [
@@ -17,7 +17,7 @@
       "slug": "SimpleSine",
       "name": "Simple Sine",
       "description": "",
-      "tags": []
+      "tags": ["Oscillator"]
     }
   ]
 }
