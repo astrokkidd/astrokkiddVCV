@@ -53,7 +53,7 @@ struct SimpleSine : Module {
 struct SimpleSineWidget : ModuleWidget {
 	SimpleSineWidget(SimpleSine* module) {
 		setModule(module);
-		setPanel(createPanel(asset::plugin(pluginInstance, "res/SimpleSine.svg")));
+		setPanel(createPanel(asset::plugin(pluginInstance, "res/simplesine.svg")));
 
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
