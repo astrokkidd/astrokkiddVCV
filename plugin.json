@@ -17,7 +17,15 @@
       "slug": "SimpleSine",
       "name": "Simple Sine",
       "description": "",
-      "tags": ["Oscillator"]
+      "tags": [
+        "Oscillator"
+      ]
+    },
+    {
+      "slug": "harm-osc",
+      "name": "Harmonic Oscillator",
+      "description": "",
+      "tags": []
     }
   ]
 }

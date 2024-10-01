@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="177.8mm"
+   height="128.5mm"
+   viewBox="0 0 177.8 128.5"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="harmonic-oscillator.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.0242632"
+     inkscape:cx="188.42813"
+     inkscape:cy="226.99243"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer2" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="font-variation-settings:'wght' 700;fill:#000080;fill-opacity:1;stroke-width:0.264999"
+       id="rect20"
+       width="189.345"
+       height="131.99936"
+       x="-2.8414733"
+       y="-2.0665259"
+       inkscape:label="Background" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="components"
+     style="display:inline">
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#00ff00;fill-opacity:1;stroke-width:0.264999"
+       id="path3"
+       cx="49"
+       cy="94"
+       r="4"
+       inkscape:label="cv2" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#00ff00;fill-opacity:1;stroke-width:0.264999"
+       id="circle3"
+       cx="69"
+       cy="94"
+       r="4"
+       inkscape:label="cv3" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#00ff00;fill-opacity:1;stroke-width:0.264999"
+       id="circle4"
+       cx="89"
+       cy="94"
+       r="4"
+       inkscape:label="cv4" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#00ff00;fill-opacity:1;stroke-width:0.264999"
+       id="circle5"
+       cx="109"
+       cy="94"
+       r="4"
+       inkscape:label="cv5" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#00ff00;fill-opacity:1;stroke-width:0.264999"
+       id="circle6"
+       cx="129"
+       cy="94"
+       r="4"
+       inkscape:label="cv6" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#00ff00;fill-opacity:1;stroke-width:0.264999"
+       id="circle7"
+       cx="149"
+       cy="94"
+       r="4"
+       inkscape:label="cv7" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#00ff00;fill-opacity:1;stroke-width:0.264999"
+       id="circle8"
+       cx="169"
+       cy="94"
+       r="4"
+       inkscape:label="cv8" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#00ff00;fill-opacity:1;stroke-width:0.264999"
+       id="circle9"
+       cx="29"
+       cy="94"
+       r="4"
+       inkscape:label="cv1" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#00ff00;fill-opacity:1;stroke-width:0.264999"
+       id="circle10"
+       cx="14"
+       cy="79"
+       r="4"
+       inkscape:label="voct" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#ff0000;fill-opacity:1;stroke-width:0.264999"
+       id="circle11"
+       cx="14"
+       cy="59"
+       r="4"
+       inkscape:label="freq" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#0000ff;fill-opacity:1;stroke-width:0.264999"
+       id="circle12"
+       cx="169"
+       cy="114"
+       r="4"
+       inkscape:label="out" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#ff0000;fill-opacity:1;stroke-width:0.264999"
+       id="circle20"
+       cx="29"
+       cy="59"
+       r="4"
+       inkscape:label="vca1" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#ff0000;fill-opacity:1;stroke-width:0.264999"
+       id="circle21"
+       cx="49"
+       cy="59"
+       r="4"
+       inkscape:label="vca2" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#ff0000;fill-opacity:1;stroke-width:0.264999"
+       id="circle22"
+       cx="69"
+       cy="59"
+       r="4"
+       inkscape:label="vca3" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#ff0000;fill-opacity:1;stroke-width:0.264999"
+       id="circle23"
+       cx="89"
+       cy="59"
+       r="4"
+       inkscape:label="vca4" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#ff0000;fill-opacity:1;stroke-width:0.264999"
+       id="circle24"
+       cx="109"
+       cy="59"
+       r="4"
+       inkscape:label="vca5" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#ff0000;fill-opacity:1;stroke-width:0.264999"
+       id="circle25"
+       cx="129"
+       cy="59"
+       r="4"
+       inkscape:label="vca6" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#ff0000;fill-opacity:1;stroke-width:0.264999"
+       id="circle26"
+       cx="149"
+       cy="59"
+       r="4"
+       inkscape:label="vca7" />
+    <circle
+       style="font-variation-settings:'wght' 700;fill:#ff0000;fill-opacity:1;stroke-width:0.264999"
+       id="circle27"
+       cx="169"
+       cy="59"
+       r="4"
+       inkscape:label="vca8" />
+  </g>
+</svg>
