@@ -93,14 +93,14 @@ struct Harm_oscWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addParam(createParam<RoundBlackKnob>(mm2px(Vec(25.0, 30.0)), module, Harm_osc::VCA1_PARAM));
-		addParam(createParam<RoundBlackKnob>(mm2px(Vec(45.0, 30.0)), module, Harm_osc::VCA2_PARAM));
-		addParam(createParam<RoundBlackKnob>(mm2px(Vec(65.0, 30.0)), module, Harm_osc::VCA3_PARAM));
-		addParam(createParam<RoundBlackKnob>(mm2px(Vec(85.0, 30.0)), module, Harm_osc::VCA4_PARAM));
-		addParam(createParam<RoundBlackKnob>(mm2px(Vec(105.0, 30.0)), module, Harm_osc::VCA5_PARAM));
-		addParam(createParam<RoundBlackKnob>(mm2px(Vec(125.0, 30.0)), module, Harm_osc::VCA6_PARAM));
-		addParam(createParam<RoundBlackKnob>(mm2px(Vec(145.0, 30.0)), module, Harm_osc::VCA7_PARAM));
-		addParam(createParam<RoundBlackKnob>(mm2px(Vec(165.0, 30.0)), module, Harm_osc::VCA8_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(25.0, 30.0)), module, Harm_osc::VCA1_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(45.0, 30.0)), module, Harm_osc::VCA2_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(65.0, 30.0)), module, Harm_osc::VCA3_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(85.0, 30.0)), module, Harm_osc::VCA4_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(105.0, 30.0)), module, Harm_osc::VCA5_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(125.0, 30.0)), module, Harm_osc::VCA6_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(145.0, 30.0)), module, Harm_osc::VCA7_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(165.0, 30.0)), module, Harm_osc::VCA8_PARAM));
 		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(14.0, 59.0)), module, Harm_osc::FREQ_PARAM));
 
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(14.0, 79.0)), module, Harm_osc::VOCT_INPUT));

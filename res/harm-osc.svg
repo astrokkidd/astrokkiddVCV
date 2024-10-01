@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="152.39999mm"
+   height="128.5mm"
+   viewBox="0 0 152.39999 128.5"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="harm-osc.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#130072"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.3843855"
+     inkscape:cx="249.56921"
+     inkscape:cy="249.56921"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#800080;stroke-width:0.264583"
+       id="rect18"
+       width="163.40733"
+       height="133.9749"
+       x="-5.5424709"
+       y="-1.7200772"
+       inkscape:label="background" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="components">
+    <circle
+       style="fill:#00ff00;stroke-width:0.264583"
+       id="path1"
+       cx="28"
+       cy="103"
+       r="3"
+       inkscape:label="cv1" />
+    <circle
+       style="fill:#00ff00;stroke-width:0.264583"
+       id="circle1"
+       cx="43"
+       cy="103"
+       r="3"
+       inkscape:label="cv2" />
+    <circle
+       style="fill:#00ff00;stroke-width:0.264583"
+       id="circle2"
+       cx="58"
+       cy="103"
+       r="3"
+       inkscape:label="cv3" />
+    <circle
+       style="fill:#00ff00;stroke-width:0.264583"
+       id="circle3"
+       cx="73"
+       cy="103"
+       r="3"
+       inkscape:label="cv4" />
+    <circle
+       style="fill:#00ff00;stroke-width:0.264583"
+       id="circle4"
+       cx="88"
+       cy="103"
+       r="3"
+       inkscape:label="cv5" />
+    <circle
+       style="fill:#00ff00;stroke-width:0.264583"
+       id="circle5"
+       cx="103"
+       cy="103"
+       r="3"
+       inkscape:label="cv6" />
+    <circle
+       style="fill:#00ff00;stroke-width:0.264583"
+       id="circle6"
+       cx="118"
+       cy="103"
+       r="3"
+       inkscape:label="cv7" />
+    <circle
+       style="fill:#00ff00;stroke-width:0.264583"
+       id="circle7"
+       cx="133"
+       cy="103"
+       r="3"
+       inkscape:label="cv8" />
+    <circle
+       style="fill:#0000ff;stroke-width:0.264583"
+       id="circle8"
+       cx="133"
+       cy="118"
+       r="3"
+       inkscape:label="out" />
+    <circle
+       style="fill:#00ff00;stroke-width:0.264583"
+       id="circle9"
+       cx="13"
+       cy="88"
+       r="3"
+       inkscape:label="voct" />
+    <circle
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="circle10"
+       cx="13"
+       cy="73"
+       r="3"
+       inkscape:label="freq" />
+    <circle
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="circle11"
+       cx="28"
+       cy="73"
+       r="3"
+       inkscape:label="vca1" />
+    <circle
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="circle12"
+       cx="43"
+       cy="73"
+       r="3"
+       inkscape:label="vca2" />
+    <circle
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="circle13"
+       cx="58"
+       cy="73"
+       r="3"
+       inkscape:label="vca3" />
+    <circle
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="circle14"
+       cx="73"
+       cy="73"
+       r="3"
+       inkscape:label="vca4" />
+    <circle
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="circle15"
+       cx="88"
+       cy="73"
+       r="3"
+       inkscape:label="vca5" />
+    <circle
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="circle16"
+       cx="103"
+       cy="73"
+       r="3"
+       inkscape:label="vca6" />
+    <circle
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="circle17"
+       cx="118"
+       cy="73"
+       r="3"
+       inkscape:label="vca7" />
+    <circle
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="circle18"
+       cx="133"
+       cy="73"
+       r="3"
+       inkscape:label="vca8" />
+  </g>
+</svg>
