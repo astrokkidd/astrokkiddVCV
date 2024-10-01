@@ -114,6 +114,29 @@ struct Harm_oscWidget : ModuleWidget {
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(169.0, 94.0)), module, Harm_osc::CV8_INPUT));
 
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(169.0, 114.0)), module, Harm_osc::OUT_OUTPUT));
+
+		/*		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(13.0, 73.0)), module, Harmosc::FREQ_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(28.0, 73.0)), module, Harmosc::VCA1_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(43.0, 73.0)), module, Harmosc::VCA2_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(58.0, 73.0)), module, Harmosc::VCA3_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(73.0, 73.0)), module, Harmosc::VCA4_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(88.0, 73.0)), module, Harmosc::VCA5_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(103.0, 73.0)), module, Harmosc::VCA6_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(118.0, 73.0)), module, Harmosc::VCA7_PARAM));
+		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(133.0, 73.0)), module, Harmosc::VCA8_PARAM));
+
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(13.0, 88.0)), module, Harmosc::VOCT_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(28.0, 103.0)), module, Harmosc::CV1_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(43.0, 103.0)), module, Harmosc::CV2_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(58.0, 103.0)), module, Harmosc::CV3_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(73.0, 103.0)), module, Harmosc::CV4_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(88.0, 103.0)), module, Harmosc::CV5_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(103.0, 103.0)), module, Harmosc::CV6_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(118.0, 103.0)), module, Harmosc::CV7_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(133.0, 103.0)), module, Harmosc::CV8_INPUT));
+
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(133.0, 118.0)), module, Harmosc::OUT_OUTPUT));*/
+
 	}
 };
 
