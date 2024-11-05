@@ -12,6 +12,10 @@ struct Harm_osc : Module {
 		VCA7_PARAM,
 		VCA8_PARAM,
 		FREQ_PARAM,
+		STATE_PARAM,
+		REG_PARAM,
+		LOG_PARAM,
+		POW_PARAM,
 		PARAMS_LEN
 	};
 	enum InputId {
@@ -30,7 +34,10 @@ struct Harm_osc : Module {
 		OUT_OUTPUT,
 		OUTPUTS_LEN
 	};
-	enum LightId {
+	enum LightIds {
+		REG_LIGHT,
+		LOG_LIGHT,
+		SQT_LIGHT,
 		LIGHTS_LEN
 	};
 
@@ -41,7 +48,10 @@ struct Harm_osc : Module {
 	float sineWaveTable[NUM_WAVE_SAMPLES];
 
 	float harmonicLevels[8];
-	float harmonicPhases[8] = {0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f};  // Up to 8 harmonics
+	float harmonicPhases[8] = {0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
+
+	bool isReg = true;
+	bool isLog, isSqt = false;
 
 	float mapToTable(float phase) {
 		int tableIndex = (int)(phase * NUM_WAVE_SAMPLES);
@@ -68,7 +78,10 @@ struct Harm_osc : Module {
 		configParam(VCA6_PARAM, 0.f, 1.f, 0.f, "");
 		configParam(VCA7_PARAM, 0.f, 1.f, 0.f, "");
 		configParam(VCA8_PARAM, 0.f, 1.f, 0.f, "");
+		configParam(VCA8_PARAM, 0.f, 1.f, 0.f, "");
 		configParam(FREQ_PARAM, -5.f, 5.f, 0.f, "Freq (1V/Oct)", " Hz", 2, dsp::FREQ_C4);
+		configSwitch(STATE_PARAM, 1.f, 3.f, 1.f, "Harmonic State");
+
 		configInput(VOCT_INPUT, "");
 		configInput(CV1_INPUT, "");
 		configInput(CV2_INPUT, "");
@@ -84,35 +97,50 @@ struct Harm_osc : Module {
 	}
 
 	void process(const ProcessArgs& args) override {
-		
-		float baseFreq = params[FREQ_PARAM].getValue();
-		float tempOut = 0.f;
+    // Calculate the base frequency from parameters and inputs
+		float baseFreq = dsp::FREQ_C4 * std::pow(2.f, params[FREQ_PARAM].getValue() + inputs[VOCT_INPUT].getVoltage());
 
-		if (baseFreq < 10.f)
-				baseFreq = 10.f;
-			else if (baseFreq > 20000.f)
-				baseFreq = 20000.f;
+		// Ensure base frequency is within a reasonable range
+		baseFreq = clamp(baseFreq, 10.f, 20000.f);
 
-		harmonicPhases[0] += baseFreq * args.sampleTime;
-			if (harmonicPhases[0] >= 1.f)
-				harmonicPhases[0] -= 1.f;
-		
-		float outputSignal = 0.f;		
+		float outputSignal = 0.f;
 
+		// Iterate over all harmonics
 		for (int i = 0; i < 8; i++) {
-			
-			float harmonicFreq = baseFreq * (i + 1);
+			// Calculate harmonic frequency as (i + 1) times the base frequency
+			float harmonicScale = 0.f;
+			float harmonicState = params[STATE_PARAM].getValue();
 
-			if (getInput(CV1_INPUT + i).isConnected())
-				harmonicLevels[i] = 0.1f * getInput(CV1_INPUT + i).getVoltage();
-			else
-				harmonicLevels[i] = getParam(VCA1_PARAM + i).getValue();
+			if (harmonicState == 1.f) {
+				harmonicScale = i + 1;
+			} else if (harmonicState == 2.f) {
+				harmonicScale = std::log2(i + 2);
+			} else if (harmonicState == 3.f) {
+				harmonicScale = std::sqrt(i + 1);
+			}
 
-			tempOut += mapToTable((i+1) * harmonicPhases[0]);
+        	float harmonicFreq = baseFreq * harmonicScale;
+
+			// Adjust harmonic phase based on the current sample time
+			harmonicPhases[i] += harmonicFreq * args.sampleTime;
+			if (harmonicPhases[i] >= 1.f) {
+				harmonicPhases[i] -= 1.f;
+			}
+
+			// Determine the amplitude of the harmonic from CV input or parameter
+			float amplitude = inputs[CV1_INPUT + i].isConnected()
+				? clamp(inputs[CV1_INPUT + i].getVoltage() * 0.1f, 0.f, 1.f)
+				: params[VCA1_PARAM + i].getValue();
+
+			// Generate the harmonic signal using the phase and amplitude
+			float harmonicSignal = amplitude * mapToTable(harmonicPhases[i]);
+
+			// Sum the harmonic signal into the total output signal
+			outputSignal += harmonicSignal;
 		}
 
-		// Output final signal
-		outputs[OUT_OUTPUT].setVoltage(5.f * tempOut);  // Scale output to appropriate voltage range
+		// Set the final output voltage, scaled to a reasonable range
+		outputs[OUT_OUTPUT].setVoltage(5.f * outputSignal / 8.f);  // Normalize by number of harmonics
 	}
 };
 
@@ -127,15 +155,21 @@ struct Harm_oscWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(28.0, 73.0)), module, Harm_osc::VCA1_PARAM));
-		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(43.0, 73.0)), module, Harm_osc::VCA2_PARAM));
-		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(58.0, 73.0)), module, Harm_osc::VCA3_PARAM));
-		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(73.0, 73.0)), module, Harm_osc::VCA4_PARAM));
-		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(88.0, 73.0)), module, Harm_osc::VCA5_PARAM));
-		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(103.0, 73.0)), module, Harm_osc::VCA6_PARAM));
-		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(118.0, 73.0)), module, Harm_osc::VCA7_PARAM));
-		addParam(createParamCentered<BefacoSlidePot>(mm2px(Vec(133.0, 73.0)), module, Harm_osc::VCA8_PARAM));
+		addParam(createParamCentered<VCVSlider>(mm2px(Vec(28.0, 73.0)), module, Harm_osc::VCA1_PARAM));
+		addParam(createParamCentered<VCVSlider>(mm2px(Vec(43.0, 73.0)), module, Harm_osc::VCA2_PARAM));
+		addParam(createParamCentered<VCVSlider>(mm2px(Vec(58.0, 73.0)), module, Harm_osc::VCA3_PARAM));
+		addParam(createParamCentered<VCVSlider>(mm2px(Vec(73.0, 73.0)), module, Harm_osc::VCA4_PARAM));
+		addParam(createParamCentered<VCVSlider>(mm2px(Vec(88.0, 73.0)), module, Harm_osc::VCA5_PARAM));
+		addParam(createParamCentered<VCVSlider>(mm2px(Vec(103.0, 73.0)), module, Harm_osc::VCA6_PARAM));
+		addParam(createParamCentered<VCVSlider>(mm2px(Vec(118.0, 73.0)), module, Harm_osc::VCA7_PARAM));
+		addParam(createParamCentered<VCVSlider>(mm2px(Vec(133.0, 73.0)), module, Harm_osc::VCA8_PARAM));
 		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(13.0, 73.0)), module, Harm_osc::FREQ_PARAM));
+
+		addParam(createParamCentered<CKSSThree>(mm2px(Vec(13.0, 58.0)), module, Harm_osc::STATE_PARAM));
+		
+		//addParam(createLightParamCentered<VCVLightLatch<MediumSimpleLight<WhiteLight>>>(mm2px(Vec(13.0, 58.0)), module, Harm_osc::REG_PARAM, Harm_osc::REG_LIGHT));
+		//addParam(createLightParamCentered<VCVLightLatch<MediumSimpleLight<WhiteLight>>>(mm2px(Vec(13.0, 43.0)), module, Harm_osc::LOG_PARAM, Harm_osc::LOG_LIGHT));
+		//addParam(createLightParamCentered<VCVLightLatch<MediumSimpleLight<WhiteLight>>>(mm2px(Vec(13.0, 28.0)), module, Harm_osc::POW_PARAM, Harm_osc::POW_LIGHT));
 
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(13.0, 88.0)), module, Harm_osc::VOCT_INPUT));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(28.0, 103.0)), module, Harm_osc::CV1_INPUT));
