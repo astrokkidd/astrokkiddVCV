@@ -50,6 +50,10 @@ struct Harm_osc : Module {
 	float harmonicLevels[8];
 	float harmonicPhases[8] = {0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
 
+	float stdHarmonicFrequencies[8] = {261.63, 523.28, 784.89, 1046.73, 1308.15, 1569.78, 1831.41, 2093.04 };
+	float logHarmonicFrequencies[8] = {261.63, 523.28, 905.24, 1046.73, 1469.38,  1810.5, 1993.92, 2094.88 };
+	float sqtHarmonicFrequencies[8] = {261.63, 523.28, 867.82, 1046.73, 1384.74, 1736.09, 1958.28, 2094.88 };
+
 	bool isReg = true;
 	bool isLog, isSqt = false;
 
@@ -111,15 +115,20 @@ struct Harm_osc : Module {
 			float harmonicScale = 0.f;
 			float harmonicState = params[STATE_PARAM].getValue();
 
+			float harmonicFreq = 0.f;
+
 			if (harmonicState == 1.f) {
-				harmonicScale = i + 1;
+				//harmonicScale = i + 1;
+				harmonicFreq = stdHarmonicFrequencies[i];
 			} else if (harmonicState == 2.f) {
-				harmonicScale = std::log2(i + 2);
+				//harmonicScale = std::log2(i + 2);
+				harmonicFreq = logHarmonicFrequencies[i];
 			} else if (harmonicState == 3.f) {
-				harmonicScale = std::sqrt(i + 1);
+				//harmonicScale = std::sqrt(i + 1);
+				harmonicFreq = sqtHarmonicFrequencies[i];
 			}
 
-        	float harmonicFreq = baseFreq * harmonicScale;
+        	//float harmonicFreq = baseFreq * harmonicScale;
 
 			// Adjust harmonic phase based on the current sample time
 			harmonicPhases[i] += harmonicFreq * args.sampleTime;
