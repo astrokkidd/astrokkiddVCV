@@ -10,3 +10,4 @@ extern Plugin* pluginInstance;
 // Declare each Model, defined in each module source file
 extern Model* modelSimpleSine;
 extern Model* modelHarm_osc;
+extern Model* modelSub_osc;

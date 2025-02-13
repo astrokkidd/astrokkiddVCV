@@ -26,6 +26,12 @@
       "name": "Harmonic Oscillator",
       "description": "",
       "tags": []
+    },
+    {
+      "slug": "sub_osc",
+      "name": "Subtractive Oscillator",
+      "description": "",
+      "tags": []
     }
   ]
 }
